@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireless and Mobile Networks Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Online Calculator for Wireless and Mobile Networks</h1>
+
+    <div class="flex-container">
+      <div class="input-section">
+        <h2>input</h2>
+        <button class="collapsible">1. The number of bits and rate of the sampler, quantizer, source encoder, channel
+          encoder, and
+          interleaver</button>
+        <div class="content">
+          <form id="bitRateForm">
+            <label for="bandwidth">Bandwidth (Hz):</label>
+            <input type="number" id="bandwidth" name="bandwidth" required>
+
+            <label for="quantizerBits"># of Bit Quantizer:</label>
+            <input type="number" id="quantizerBits" name="quantizerBits" required>
+
+            <label for="compressionRate">Compression Rate (Rs):</label>
+            <input type="number" id="compressionRate" name="compressionRate" required>
+
+            <label for="channelEncoderRate">Channel Encoder Rate (Rc):</label>
+            <input type="number" id="channelEncoderRate" name="channelEncoderRate" required>
+
+            <label for="interleaverBits">Interleaver Bits:</label>
+            <input type="number" id="interleaverBits" name="interleaverBits" required>
+
+            <button type="button" onclick="calculateBitRate()">Solve</button>
+          </form>
+        </div>
+
+
+
+
+        <button class="collapsible">2. The number of bits and rate for resource elements, OFDM symbol, Resource Blocks,
+          and maximum transmission using parallel resource blocks.</button>
+        <div class="content">
+          <form id="resourceBlockForm">
+            <label for="rbBandwidth">Bandwidth (Hz):</label>
+            <input type="number" id="rbBandwidth" name="rbBandwidth" required>
+
+            <select id="UnitrbBandwidth" name="UnitrbBandwidth" required>
+              <option value="3">KHz</option>
+              <option value="0">Hz</option>
+              <option value="-3">mHz</option>
+            </select>
+
+            <label for="subcarrierSpacing">Subcarrier Spacing (Hz):</label>
+            <input type="number" id="subcarrierSpacing" name="subcarrierSpacing" required>
+
+            <select id="UnitsubcarrierSpacing" name=" UnitsubcarrierSpacing" required>
+              <option value="3">KHz</option>
+              <option value=" 0">Hz</option>
+              <option value="-3">mHz</option>
+
+            </select>
+
+
+
+
+            <label for="ofdmSymbols"># OFDM Symbol per resource block:</label>
+            <input type="number" id="ofdmSymbols" name="ofdmSymbols" required>
+
+            <label for="rbDuration">Duration for each resource block (ms):</label>
+            <input type="number" id="rbDuration" name="rbDuration" required>
+            <select id="UnitrbDuration" name="UnitrbDuration" required>
+              <option value="0">sec</option>
+              <option value="-3">ms</option>
+            </select>
+
+
+
+
+            <label for="parallelResourceBlock"># of parallel resource block continuously</label>
+            <input type="number" id="parallelResourceBlock" name="parallelResourceBlock" required>
+
+            <label for="modulationType">Modulation Type:</label>
+
+            <select id="modulationType" name="modulationType" required>
+              <option value="1024">1024-QAM</option>
+              <option value="64">64-QAM</option>
+              <option value="16">16-QAM</option>
+              <option value="8">8-QAM</option>
+              <!-- Add more modulation types as needed -->
+            </select>
+
+            <button type="button" onclick="calculateResourceBlock()">Solve</button>
+          </form>
+        </div>
+
+
+
+
+
+        <button class="collapsible">3. Power transmitted in a flat environment based on the transmitter and receiver
+          specifications.</button>
+        <div class="content">
+
+          <label for="PathLoss">Path loss :</label>
+          <input type="number" id="PathLoss" name="PathLoss" required> <!-- Db watt -->
+          <select id="UnitPathLoss" name="UnitPathLoss" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+
+          <label for="Frequency">Frequency :</label>
+          <input type="number" id="Frequency" name="Frequency" required> <!-- kHz , Hz -->
+          <select id="UnitFrequency" name="UnitAr" required>
+            <option value="1">K Hz</option>
+            <option value="0">M Hz</option>
+            <option value="2">Hz</option>
+          </select>
+
+
+          <label for="Gt">Gain transmitter :</label> <!-- Db watt -->
+          <input type="number" id="Gt" name="Gt" required>
+          <select id="UnitGt" name="UnitGt" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+
+          <label for="Gr">Gain receiver (Gr) :</label>
+          <input type="number" id="Gr" name="Gr" required>
+          <select id="UnitGr" name="UnitGr" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+
+          <label for="DataRate:"> Data rate:</label>
+          <input type="number" id="DataRate" name="DataRate" required>
+
+
+          <label for="Lf"> Feed loss:</label>
+          <input type="number" id="Lf" name="Lf" required>
+          <select id="UnitLf" name="UnitLf" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+
+
+          <label for="Fmargin"> Fadding margin:</label>
+          <input type="number" id="Fmargin" name="Fmargin" required>
+          <select id="UnitFmargin" name="UnitFmargin" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+          <label for="Linkmargin"> Link margin:</label>
+          <input type="number" id="Linkmargin" name="Linkmargin" required>
+          <select id="UnitLinkmargin" name="UnitLinkmargin" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+          <label for="Lo"> Other loss:</label>
+          <input type="number" id="Lo" name="Lo" required>
+          <select id="UnitLo" name="UnitLo" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+
+          <label for="Ar"> Amplifier receiver:</label>
+          <input type="number" id="Ar" name="Ar" required>
+          <select id="UnitAr" name="UnitAr" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+          <label for="At"> Amplifier transmitter:</label> <!--قيمة ابتدائية 1  -->
+          <input type="number" id="At" name="At" required>
+          <select id="UnitAt" name="UnitAt" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+          <label for="NT"> Noise Total:</label>
+          <input type="number" id="NT" name="NT" required>
+          <select id="UnitNT" name="UnitNT" required>
+            <option value="1">dB</option>
+            <option value="0">watt</option>
+            <option value="2">dBm</option>
+          </select>
+
+          <label for="Temperature"> Temperature:</label> <!-- kilvin,cls -->
+          <input type="number" id="Temperature" name="Temperature" required>
+          <select id="UnitTemp" name="UnitTemp" required>
+            <option value="0">k</option>
+            <option value="273.15">°C</option>
+          </select>
+
+
+
+
+
+
+          <label for="BitErorrRate"> Bit error rate :</label>
+          <select id="BitErorrRate" name="BitErorrRate" required>
+            <option value="2">10^-6</option>
+            <option value="1">10^-4</option>
+            <option value="0">10^-3</option>
+          </select>
+
+          <label for="ModulationType"> Modulation type :</label>
+
+          <select id="ModulationType" name="ModulationType" required>
+            <option value="2">16-PSK</option>
+            <option value="1">8-PSK</option>
+            <option value="0">BFSK</option>
+            <!-- Add more modulation types as needed -->
+          </select>
+
+          <label for="K"> K = 1.38 * 10 ^-23</label>
+
+          <button type="button" onclick="qus3()">Solve</button>
+          </form>
+        </div>
+
+
+
+
+        <button class="collapsible">4. Throughput in percent of Multiple Access techniques.
+        </button>
+        <div class="content">
+          <form id=" CSMAQus">
+            <label for="CSMA"> CSMA type :</label>
+
+            <select id="CSMA" name="CSMA" required>
+              <option value="2">unslotted Nonpersistent CSMA</option>
+              <option value="0">Slotted Nonpersistent CSMA</option>
+              <option value="1">Slotted Aloha</option>
+              <option value="3">pure Aloha</option>
+
+              <!-- Add more modulation types as needed -->
+            </select>
+
+
+            <label for="TransmissionBandwidth"> Transmission Bandwidth:</label>
+            <input type="number" id="TransmissionBandwidth" name="TransmissionBandwidth" required>
+            <select id="UnitTransmissionBandwidth" name="UnitTransmissionBandwidth" required>
+              <option value="2">M bps</option>
+              <option value="0">K bps</option>
+              <option value="1">bps</option>
+            </select>
+
+
+            <label for="τ"> The maximum signal propagation time (τ) :</label>
+            <input type="number" id="τ" name="τ" required>
+            <select id="Unitτ" name="Unitτ" required>
+              <option value="3">µ sec</option>
+              <option value="1">sec</option>
+            </select>
+
+            <label for="FrameSize"> Frame Size :</label>
+            <input type="number" id="FrameSize" name="FrameSize" required>
+            <select id="UnitFrameSize" name="UnitFrameSize" required>
+              <option value="0">K bit</option>
+              <option value="2">M bit</option>
+              <option value="1">bit</option>
+            </select>
+
+            <label for="FrameRate"> Frame Rate :</label>
+            <input type="number" id="FrameRate" name="FrameRate" required>
+            <select id="UnitFrameRate" name="UnitFrameRate" required>
+              <option value="0">K bit</option>
+              <option value="2">M bit</option>
+              <option value="1">bit</option>
+            </select>
+
+            <button type="button" onclick="qus4()">Solve</button>
+          </form>
+        </div>
+
+
+
+
+
+
+        <button class="collapsible">5. Design of cellular system. </button>
+        <div class="content">
+
+
+          <form id="inputQUS5">
+
+            <label for="timePerCarrier">Number of time slot per carrier:</label>
+            <input type="number" id="timePerCarrier" name="timePerCarrier" required>
+
+
+            <label for="NumberOfUsers">Number Of Users:</label>
+            <input type="number" id="NumberOfUsers" name="NumberOfUsers" required>
+
+            <label for="TotalArea">Total Area:</label>
+            <input type="number" id="TotalArea" name="TotalArea" required>
+            <select id="UnitTotalArea" name="UnitTotalArea" required>
+              <option value="6">Km2</option>
+              <option value="0">m2</option>
+            </select>
+
+
+
+
+            <label for="AveargeCallPerDay">Avearge Call Per Day (call/day) (λ):</label>
+            <input type="number" id="AveargeCallPerDay" name="AveargeCallPerDay" required>
+
+            <label for="AveargeDuraion">Avearge call Duration (minutes) (H) :</label>
+            <input type="number" id="AveargeDuraion" name="AveargeDuraion" required>
+
+            <label for="callDropPropapility"> Call Drop Propapility (GOS):</label>
+            <input type="number" id="callDropPropapility" name="callDropPropapility" required>
+
+
+            <label for="SIR">The minimum SIR
+              needed to correctly provide the service:</label>
+            <input type="number" id="SIR" name="SIR" required>
+            <select id="UnitSIR" name="UnitSIR" required>
+              <option value="1">dB</option>
+              <option value="0">watt</option>
+              <option value="2">dBm</option>
+            </select>
+
+            <label for="pd0">Power is measured
+              at a reference distancefrom base stations:</label>
+            <input type="number" id="pd0" name="pd0" required>
+            <select id="Unitpd0" name="Unitpd0" required>
+              <option value="1">dB</option>
+              <option value="0">watt</option>
+              <option value="2">dBm</option>
+            </select>
+
+
+            <label for="referenceDistance ">Reference distance from base stations :</label>
+            <input type="number" id="referenceDistance" name="referenceDistance" required>
+            <select id="UnitreferenceDistance" name="UnitreferenceDistance" required>
+              <option value="0">meters</option>
+              <option value="3">Km</option>
+            </select>
+
+            <label for="pathLossExponent"> Path loss exponent (n) :</label>
+            <input type="number" id="pathLossExponent" name="pathLossExponent" required>
+
+            <label for="prSen">Receiver sensitivity :</label>
+            <input type="number" id="prSen" name="prSen" required>
+            <select id="UnitprSen" name="UnitprSen" required>
+              <option value="3">µ watt</option>
+              <option value="0">watt</option>
+              <option value="1">dB</option>
+              <option value="2">dBm</option>
+            </select>
+
+
+            <label for="TypeErlangs"> Type Erlangs :</label>
+            <select id="TypeErlangs" name="TypeErlangs" required>
+              <option value="1">Erlangs B</option>
+              <option value="2">Erlangs C</option>
+              <!-- Add more modulation types as needed -->
+            </select>
+
+            <button type="button" onclick="qus5()">Solve</button>
+          </form>
+        </div>
+
+
+
+
+
+      </div>
+
+      <div class="output-section">
+        <h2>Output</h2>
+        <h3>Result table will be shown here</h3>
+        <div id="bitRateResult">
+          <h3>Results</h3>
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Value (Unit)</th>
+            </tr>
+            <tr>
+              <td>Sampling Frequency</td>
+              <td><span id="samplingFrequency"></span> (Hz)</td>
+            </tr>
+            <tr>
+              <td>Number of Quantization Levels</td>
+              <td><span id="quantizationLevels"></span> (levels)</td>
+            </tr>
+            <tr>
+              <td>Bit Rate Output of Source Encoder</td>
+              <td><span id="sourceEncoderRate"></span> (bit/sec)</td>
+            </tr>
+            <tr>
+              <td>Bit Rate Output of Channel Encoder</td>
+              <td><span id="channelEncoderRateOutput"></span> (bit/sec)</td>
+            </tr>
+            <tr>
+              <td>Bit Rate Output of Interleaver</td>
+              <td><span id="interleaverRate"></span> (bit/sec)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div id="resourceBlockResult">
+          <h3>Resource Block Results</h3>
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Value (Unit)</th>
+            </tr>
+            <!-- Results will be populated here -->
+            <tr>
+              <td>Number of bits per resource element </td>
+              <td><span id="bitsPerResourceElement"></span> (bits)</td>
+            </tr>
+            <tr>
+              <td>Number of Bits per OFDM Symbol</td>
+              <td><span id="bitsPerOfdmSymbol"></span> (bits)</td>
+            </tr>
+            <tr>
+              <td>Number of Bits per Resource Block</td>
+              <td><span id="bitsPerResourceBlock"></span> (bit/RB)</td>
+            </tr>
+            <tr>
+              <td>Maximum Transmission Rate</td>
+              <td><span id="maxTransmissionRate"></span> (bit/sec)</td>
+            </tr>
+          </table>
+        </div>
+
+
+        <div id="qus3">
+          <h3>PowerTransmitted Output</h3>
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Value (Unit)</th>
+            </tr>
+            <!-- Results will be populated here -->
+            <tr>
+              <td>Power transmitted </td>
+              <td><span id="PowerTransmitted"></span> (dB)</td>
+            </tr>
+
+          </table>
+        </div>
+
+        <div id="qus4">
+          <h3> Throughput</h3>
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Value (Unit)</th>
+            </tr>
+            <!-- Results will be populated here -->
+            <tr>
+              <td>Throughput </td>
+              <td><span id="Throughput"></span> %</td>
+            </tr>
+
+          </table>
+        </div>
+
+
+
+        <div id="qus5">
+          <h3>Results</h3>
+          <table>
+            <tr>
+              <th>Parameter</th>
+              <th>Value (Unit)</th>
+            </tr>
+            <tr>
+              <td>Maximum distance between transmitter and receiver for reliable communication</td>
+              <td><span id="MaxDis"></span> (m)</td>
+            </tr>
+            <tr>
+              <td>Maximum cell size assuming hexagonal cells.</td>
+              <td><span id="cellSize"></span> (m2)</td>
+            </tr>
+            <tr>
+              <td>The number of cells in the service area</td>
+              <td><span id="NumberOfCells"></span></td>
+            </tr>
+            <tr>
+              <td>Traffic load in the whole cellular system in Erlangs</td>
+              <td><span id="TrafficLoadSystem"></span> (Erlangs)</td>
+            </tr>
+            <tr>
+              <td>Traffic load in each cell in Erlangs</td>
+              <td><span id="TrafficLoadCell"></span> (Erlangs)</td>
+            </tr>
+
+            <tr>
+              <td>Number of cells in each cluster</td>
+              <td><span id="NumberOfCellInEachClus"></span></td>
+            </tr>
+
+            <tr>
+              <td>Minimum number of carriers needed (in the whole system)</td>
+              <td><span id="MinimumNumberOfCarriers"></span></td>
+            </tr>
+
+            <tr>
+              <td>Number of Carrier Per Cell:</td>
+              <td><span id="NumberofCarrierPerCell"></span></td>
+            </tr>
+
+            <tr>
+              <td>Number of Carrier Per System:</td>
+              <td><span id="NumberoFCarrierPerSystem"></span></td>
+            </tr>
+
+
+
+
+          </table>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
