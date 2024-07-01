@@ -20,6 +20,33 @@ h1 {
   color: #000000;
 }
 
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .nav {
+    display: block;
+  }
+}
+
+button,
+a {
+  padding: 10px 20px;
+}
+
+@media (min-width: 769px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .nav {
+    display: flex;
+  }
+}
+
 h2.input-section {
   text-align: left;
   color: #060404;
