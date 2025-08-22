@@ -68,8 +68,11 @@ php -S localhost:8000
 ---
 
 ## 💡 Usage
+<img width="1647" height="843" alt="image" src="https://github.com/user-attachments/assets/54dd0d4e-6981-4951-aa3a-0c92fbcf64af" />
+
 
 ### **1. Signal Processing & Encoding** 📊
+
 
 Calculate fundamental digital signal processing parameters:
 
@@ -83,6 +86,7 @@ Sampling Frequency = 20 KHz
 Quantization Levels = 256
 Source Encoder Rate = 160 Kbps
 ```
+<img width="1541" height="849" alt="image" src="https://github.com/user-attachments/assets/a494c2d1-43f5-4c63-958b-a87ef52b9fa4" /> 
 
 ### **2. OFDM Resource Block Analysis** 📡
 
