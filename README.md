@@ -28,14 +28,6 @@
 | **🔄 Multiple Access** | Throughput analysis for CSMA, ALOHA protocols | Frame sizes, Propagation delays, Access methods |
 | **🏢 Cellular Design** | Complete cellular system design and optimization | Coverage area, Traffic load, SIR requirements |
 
-### ✨ **Advanced Capabilities**
-
-- **🧮 Multi-Unit Support**: Automatic unit conversions (Hz/KHz/MHz, dB/dBm/Watts, etc.)
-- **📈 Real-time Calculations**: Instant results with dynamic form validation
-- **🎨 Interactive UI**: Collapsible sections with intuitive navigation
-- **📋 Comprehensive Results**: Detailed tabular output with all intermediate values
-- **🔬 Engineering Accuracy**: Implements industry-standard formulas and models
-
 ---
 
 ## 🔧 Installation
@@ -237,50 +229,6 @@ Bits_RE = log2(Modulation_Order)
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions from the wireless engineering community!
-
-### **Development Setup** 👩‍💻
-
-```bash
-# Fork the repository
-git fork https://github.com/yourusername/wireless-networks-calculator.git
-
-# Create feature branch
-git checkout -b feature/new-calculation
-
-# Make changes and test
-# Add your improvements to the calculation modules
-
-# Submit pull request
-git push origin feature/new-calculation
-```
-
-### **Contribution Areas** 🎯
-- **New Calculation Modules**: 5G NR, WiFi 6E, etc.
-- **UI Improvements**: Better visualizations, charts
-- **Mobile Optimization**: Enhanced responsive design
-- **Documentation**: Technical guides, examples
-- **Testing**: Unit tests, validation cases
-
----
-
-## 📈 Roadmap
-
-### **Upcoming Features** 🔮
-- **📊 Graphical Visualizations**: Interactive charts and plots
-- **💾 Export Functionality**: PDF reports, CSV data export
-- **🔄 Batch Processing**: Multiple calculations at once
-- **📱 Mobile App**: Native iOS/Android versions
-- **🌐 API Integration**: RESTful calculation services
-
-### **Version History** 📝
-- **v1.0.0**: Initial release with core calculations
-- **v1.1.0**: Enhanced UI and mobile support (Planned)
-- **v2.0.0**: Advanced 5G calculations (Planned)
-
----
 
 ## 📄 License
 
@@ -294,30 +242,19 @@ This calculator is built for the engineering community. Feel free to use, modify
 ## 👥 Authors & Acknowledgments
 
 ### **Core Development Team** 👨‍💻
-- **Lead Developer**: Wireless Engineering Specialist
-- **UI/UX Designer**: Frontend Developer
-- **Technical Advisor**: RF Engineering Expert
+- **Lead Developer**: Hasan Qarmash - Full stack developer
 
-### **Special Thanks** 🙏
-- Telecommunications engineering community
-- Open source contributors
-- Academic institutions and research labs
+
 
 ---
 
 ## 📞 Support & Contact
 
 ### **Getting Help** 🆘
-- **📧 Email**: support@wireless-calculator.com
+- **📧 Email**: qarmash.hasan@gmail.com
 - **💬 Discussions**: GitHub Discussions tab
 - **🐛 Bug Reports**: GitHub Issues
 - **💡 Feature Requests**: GitHub Issues with enhancement label
-
-### **Professional Services** 💼
-For custom calculations, training, or enterprise deployments:
-- **🏢 Enterprise Support**: Available for commercial use
-- **🎓 Training Services**: Workshops and tutorials
-- **🔧 Custom Development**: Tailored solutions
 
 ---
 
