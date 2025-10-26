@@ -247,7 +247,7 @@ This calculator is built for the engineering community. Feel free to use, modify
 ## 👥 Authors & Acknowledgments
 
 ### **Core Development Team** 👨‍💻
-- **Lead Developer**: Hasan Qarmash - Full stack developer
+- **Lead Developer**: Eng.Hasan Qarmash - Full stack developer
 
 
 
